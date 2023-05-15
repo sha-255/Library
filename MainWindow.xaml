@@ -5,6 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Library"
         mc:Ignorable="d"
-        Title="Библиотека" Height="450" Width="800" MinHeight="450" MinWidth="800" WindowStartupLocation="CenterScreen">
+        Title="Библиотека" Height="450" Width="800" MinHeight="450" MinWidth="450" WindowStartupLocation="CenterScreen">
     <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
 </Window>

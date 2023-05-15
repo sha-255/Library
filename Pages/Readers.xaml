@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Readers">
 
-    <Grid Background="#36393f">
+    <Grid Background="#36393f" x:Name="MainGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
             <RowDefinition/>
@@ -18,13 +18,41 @@
         </Menu>
         <Grid Grid.Row="1">
             <StackPanel>
-                <Grid>
-                    <Border>
-                        <Label Content="Aaa" 
-                               Foreground="Gray" 
-                               FontWeight="Medium"/>
-                    </Border>
-                </Grid>
+                <Label Content="+" Foreground="Gray" HorizontalAlignment="Center" FontWeight="UltraBold" FontSize="20" Cursor="Hand"/>
+                <ListBox x:Name="ReaderView" Background="{x:Null}" BorderBrush="{x:Null}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Width="{Binding ElementName=MainGrid, Path=Width}">
+                                <StackPanel>
+                                    <Label/>
+                                    <Border Background="#252525" CornerRadius="6">
+                                        <DockPanel>
+                                            <Label Content="{Binding Path=Id}"
+                                       Foreground="Gray" 
+                                       FontWeight="Medium"/>
+                                            <Label Content="{Binding Path=Name}"
+                                       Foreground="Gray" 
+                                       FontWeight="Medium"/>
+                                            <Button Content=" Подробнее "
+                                        Background="#252525" 
+                                        HorizontalAlignment="Right" 
+                                        VerticalAlignment="Center" 
+                                        Foreground="Gray" 
+                                        FontWeight="Bold" Margin="0,0,3,0">
+                                                <Button.Resources>
+                                                    <Style TargetType="Border">
+                                                        <Setter Property="CornerRadius" 
+                                                    Value="5"/>
+                                                    </Style>
+                                                </Button.Resources>
+                                            </Button>
+                                        </DockPanel>
+                                    </Border>
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
             </StackPanel>
         </Grid>
     </Grid>

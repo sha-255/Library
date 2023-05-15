@@ -21,9 +21,4 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.5" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Domain\Data\" />
-    <Folder Include="Domain\Context\" />
-  </ItemGroup>
-
 </Project>
