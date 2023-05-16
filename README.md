@@ -7,4 +7,4 @@ Data Source=
 [you Initial catalog (ServiceStation)]
 ;Integrated Security=True;Encrypt=False
 ```
-In you SSMS add database & tables how in c# context.
+In you SSMS add database & tables how in c# [context](https://github.com/sha-255/Library/tree/eceb3cbbafd5c7b00f340f47eb19b4d2e0ed283b/Domain/Data).
