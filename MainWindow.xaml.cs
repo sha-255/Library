@@ -11,9 +11,9 @@ namespace Library
     {
         public MainWindow()
         {
+            Initialized += (s, e) => Settings.Apply();
             InitializeComponent();
             MainFrame.Navigate(new Readers());
-            Initialized += (s, e) => Settings.Apply();
         }
     }
 }

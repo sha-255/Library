@@ -1,4 +1,6 @@
-﻿using Library.Domain.Data;
+﻿using Library.Domain.Context;
+using Library.Domain.Data;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.ObjectModel;
 using System.Windows.Controls;
@@ -32,10 +34,16 @@ namespace Library.Pages
             },
         };
 
+        ReadersContext readersContext = new();
+
         public Readers()
         {
             InitializeComponent();
+            //ApplyContext();
             ReaderView.ItemsSource = readers;
+            SearchView.ItemsSource = readers;
         }
+
+        private async void ApplyContext() => ReaderView.ItemsSource = await readersContext.Readers.ToListAsync();
     }
 }
