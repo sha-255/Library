@@ -3,6 +3,8 @@ using Library.Domain.Data;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace Library.Pages
@@ -39,11 +41,27 @@ namespace Library.Pages
         public Readers()
         {
             InitializeComponent();
-            //ApplyContext();
-            ReaderView.ItemsSource = readers;
+            ApplyContext();
             SearchView.ItemsSource = readers;
+            Add.Click += (s,e) => NavigationService.Navigate(new AddReaderPage());
+            Remove.Click += OnRemoveClick;
         }
 
-        private async void ApplyContext() => ReaderView.ItemsSource = await readersContext.Readers.ToListAsync();
+        private void OnRemoveClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                readersContext.Readers.Remove(readersContext.Readers.Find(int.Parse(RemoveId.Text)));
+                readersContext.SaveChanges();
+                ApplyContext();
+            }
+            catch
+            {
+                MessageBox.Show("Неверные данные", "Библиотека", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+        public async void ApplyContext()
+            => ReaderView.ItemsSource = await readersContext.Readers.ToListAsync();
     }
 }

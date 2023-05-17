@@ -7,11 +7,31 @@ namespace Library.Domain.Data
     {
         [Key]
         public int Id { get; set; }
-        public string Name { get; set; }
+        private string? name;
+        public string Name 
+        { 
+            get => name?.Normalize().Trim(); 
+            set => name = value?.Normalize().Trim(); 
+        }
         public DateTime? Birthday { get; set; }
-        public string? AddressAndPhone { get; set; }
-        public string? Group { get; set; }
+        private string? addressAndPhone;
+        public string? AddressAndPhone 
+        { 
+            get => addressAndPhone?.Normalize().Trim(); 
+            set => addressAndPhone = value?.Normalize().Trim(); 
+        }
+        private string? group;
+        public string? Group 
+        { 
+            get => group?.Normalize().Trim(); 
+            set => group = value?.Normalize().Trim(); 
+        }
         public DateTime RecordingDate { get; set; }
-        public string? Books { get; set; }
+        public string? books;
+        public string? Books 
+        { 
+            get => books?.Normalize().Trim(); 
+            set => books = value?.Normalize().Trim();
+        }
     }
 }
