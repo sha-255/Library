@@ -22,7 +22,7 @@
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
-                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="0.4*"/>
                 </Grid.ColumnDefinitions>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -30,6 +30,14 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <DockPanel Margin="10,10,10,10" HorizontalAlignment="Center">
+                        <TextBox x:Name="ReadersSearch" Width="150" Background="#282B30" Foreground="Gray" Height="30" FontWeight="ExtraBold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="{x:Null}">
+                            <TextBox.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="15"/>
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
+                        <Label/>
                         <Button x:Name="Add" Content=" + " Foreground="#FF66CC6D" Background="#252525" HorizontalAlignment="Center" FontWeight="UltraBold" FontSize="20" Cursor="Hand">
                             <Button.Resources>
                                 <Style TargetType="Border">
@@ -46,7 +54,7 @@
                             </Button.Resources>
                         </Button>
                         <Label/>
-                        <TextBox x:Name="RemoveId" Width="32" Foreground="Gray" BorderBrush="Gray" Background="#282B30" FontWeight="ExtraBold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                        <TextBox x:Name="RemoveId" Width="32" Foreground="Gray" BorderBrush="#FFCC7777" Background="#282B30" FontWeight="ExtraBold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
                             <TextBox.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="10"/>
@@ -89,56 +97,41 @@
                 </Grid>
                 <Grid Background="#282B30" Grid.Column="1">
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
                         <RowDefinition/>
-                        <RowDefinition Height="80"/>
+                        <RowDefinition Height="40"/>
                     </Grid.RowDefinitions>
-                    <StackPanel>
-                        <StackPanel Margin="10,10,10,10">
-                            <TextBox x:Name="Search" Margin="0,0,0,10" Background="#FF36393F" Foreground="Gray" Height="30" FontWeight="ExtraBold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="{x:Null}" Width="90">
-                                <TextBox.Resources>
-                                    <Style TargetType="Border">
-                                        <Setter Property="CornerRadius" Value="15"/>
-                                    </Style>
-                                </TextBox.Resources>
-                            </TextBox>
-                            <Button x:Name="SearhcBtn" FontSize="10" Content=" Найти " Background="#FF36393F" Foreground="Gray" FontWeight="Bold" Width="40" Height="20">
-                                <Button.Resources>
-                                    <Style TargetType="Border">
-                                        <Setter Property="CornerRadius" Value="5"/>
-                                    </Style>
-                                </Button.Resources>
-                            </Button>
-                        </StackPanel>
-                        <ListBox x:Name="SearchView" HorizontalContentAlignment="Stretch" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}">
-                            <ListBox.ItemTemplate>
-                                <DataTemplate>
-                                    <Grid Width="{Binding ElementName=MainGrid, Path=Width}">
-                                        <StackPanel>
-                                            <Border Background="#252525" CornerRadius="6">
-                                                <DockPanel>
-                                                    <Label Content="{Binding Path=Id}"
-                                                   Foreground="Gray" 
-                                                   FontWeight="Medium"/>
-                                                    <Label Content="{Binding Path=Name}"
-                                                   Foreground="Gray" 
-                                                   FontWeight="Medium"/>
-                                                </DockPanel>
-                                            </Border>
-                                        </StackPanel>
-                                    </Grid>
-                                </DataTemplate>
-                            </ListBox.ItemTemplate>
-                        </ListBox>
-                    </StackPanel>
-                    <StackPanel Grid.Row="1">
-                        <Button x:Name="Put" Content="Изменить" Background="#FF36393F" Foreground="Gray" VerticalAlignment="Bottom" Margin="10,10,10,10" FontWeight="Bold">
-                            <Button.Resources>
+                    <StackPanel Margin="10,10,10,10">
+                        <TextBox x:Name="BooksSearch" Margin="0,0,0,10" Background="#FF36393F" Foreground="Gray" Height="30" FontWeight="ExtraBold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="{x:Null}">
+                            <TextBox.Resources>
                                 <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="5"/>
+                                    <Setter Property="CornerRadius" Value="15"/>
                                 </Style>
-                            </Button.Resources>
-                        </Button>
-                        <Button x:Name="Delete" Content="Удалить" Background="#FF36393F" Foreground="Gray" VerticalAlignment="Bottom" Margin="10,10,10,10" FontWeight="Bold">
+                            </TextBox.Resources>
+                        </TextBox>
+                    </StackPanel>
+                    <ListBox x:Name="SearchView" Grid.Row="1"  HorizontalContentAlignment="Stretch" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Width="{Binding ElementName=MainGrid, Path=Width}">
+                                    <StackPanel>
+                                        <Border Background="#252525" CornerRadius="6">
+                                            <DockPanel>
+                                                <Label Content="{Binding Path=Id}"
+                                                   Foreground="Gray" 
+                                                   FontWeight="Medium"/>
+                                                <Label Content="{Binding Path=Name}"
+                                                   Foreground="Gray" 
+                                                   FontWeight="Medium"/>
+                                            </DockPanel>
+                                        </Border>
+                                    </StackPanel>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <StackPanel Grid.Row="2">
+                        <Button x:Name="Put" Width="70" Content="Изменить" Background="#FF36393F" Foreground="Gray" VerticalAlignment="Bottom" Margin="10,10,10,10" FontWeight="Bold">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="5"/>

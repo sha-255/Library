@@ -29,10 +29,16 @@ namespace Library.Pages
             try
             {
                 booksContext.Books.Remove(booksContext.Books.Find(Math.Abs(int.Parse(RemoveId.Text))));
+                booksContext.SaveChanges();
+                ApplyContext();
             }
             catch
             {
                 MessageBox.Show("Неверные данные", "Библиотека", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            finally
+            {
+                RemoveId.Clear();
             }
         }
 

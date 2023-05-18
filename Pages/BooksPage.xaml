@@ -12,14 +12,19 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
             <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="170"/>
         </Grid.RowDefinitions>
         <Menu Grid.Row="0" Background="#252525">
             <MenuItem Header="Приложение" FontWeight="Bold" Background="#252525" Foreground="Gray">
                 <MenuItem x:Name="OpenReaders" Header="Читатели" Background="#252525" Foreground="Gray" BorderBrush="#252525"/>
             </MenuItem>
         </Menu>
-        <ListBox x:Name="BooksListBox" Grid.Row="1" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}">
+        <ListBox x:Name="BooksListBox"
+                 HorizontalContentAlignment="Stretch"
+                 Grid.Row="1"
+                 Background="{x:Null}" 
+                 BorderBrush="{x:Null}" 
+                 Foreground="{x:Null}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -27,7 +32,7 @@
                             <Border Background="#252525" CornerRadius="6">
                                 <DockPanel>
                                     <Label Content="{Binding Path=Id}"
-                                                   Foreground="Gray" 
+                                                   Foreground="Gray"  
                                                    FontWeight="Medium"/>
                                     <Label Content="{Binding Path=InventoryNumber}"
                                                    Foreground="Gray" 
@@ -45,11 +50,11 @@
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="0.5*"/>
             </Grid.ColumnDefinitions>
             <GroupBox Header="Добавить книгу" Foreground="Gray" FontWeight="Bold" Margin="10,10,10,10" BorderBrush="#FF282B30">
                 <Grid>
-                    <StackPanel>
+                    <StackPanel Margin="10,10,10,10">
                         <DockPanel>
                             <Label Content="Инвентарный номер:" Foreground="Gray" FontWeight="ExtraBold"/>
                             <TextBox x:Name="AddInventoryNumber" Foreground="Gray" BorderBrush="Gray" Background="#282B30" FontWeight="ExtraBold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
@@ -84,7 +89,7 @@
             </GroupBox>
             <GroupBox Grid.Column="1"  Header="Удалить книгу" Foreground="Gray" FontWeight="Bold" Margin="10,10,10,10" BorderBrush="#FF282B30">
                 <Grid>
-                    <StackPanel>
+                    <StackPanel Margin="10,10,10,10">
                         <DockPanel>
                             <Label Content="Id книги:" Foreground="Gray" FontWeight="ExtraBold"/>
                             <TextBox x:Name="RemoveId" Foreground="Gray" BorderBrush="Gray" Background="#282B30" FontWeight="ExtraBold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
