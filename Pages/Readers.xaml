@@ -15,7 +15,7 @@
         </Grid.RowDefinitions>
         <Menu Grid.Row="0" Background="#252525">
             <MenuItem Header="Приложение" FontWeight="Bold" Background="#252525" Foreground="Gray">
-                <MenuItem x:Name="Books" Header="Книги" Background="#252525" Foreground="Gray" BorderBrush="#252525"/>
+                <MenuItem x:Name="OpenBooks" Header="Книги" Background="#252525" Foreground="Gray" BorderBrush="#252525"/>
             </MenuItem>
         </Menu>
         <Grid Grid.Row="1">
@@ -93,13 +93,22 @@
                         <RowDefinition Height="80"/>
                     </Grid.RowDefinitions>
                     <StackPanel>
-                        <TextBox Text="Найти..." Margin="10,10,10,10" Background="#FF36393F" Foreground="Gray" VerticalAlignment="Top" Height="30" FontWeight="ExtraBold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="{x:Null}">
-                            <TextBox.Resources>
-                                <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="15"/>
-                                </Style>
-                            </TextBox.Resources>
-                        </TextBox>
+                        <StackPanel Margin="10,10,10,10">
+                            <TextBox x:Name="Search" Margin="0,0,0,10" Background="#FF36393F" Foreground="Gray" Height="30" FontWeight="ExtraBold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="{x:Null}" Width="90">
+                                <TextBox.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="15"/>
+                                    </Style>
+                                </TextBox.Resources>
+                            </TextBox>
+                            <Button x:Name="SearhcBtn" FontSize="10" Content=" Найти " Background="#FF36393F" Foreground="Gray" FontWeight="Bold" Width="40" Height="20">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="5"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                        </StackPanel>
                         <ListBox x:Name="SearchView" HorizontalContentAlignment="Stretch" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
@@ -129,7 +138,7 @@
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="Удалить" x:Name="Delete" Background="#FF36393F" Foreground="Gray" VerticalAlignment="Bottom" Margin="10,10,10,10" FontWeight="Bold">
+                        <Button x:Name="Delete" Content="Удалить" Background="#FF36393F" Foreground="Gray" VerticalAlignment="Bottom" Margin="10,10,10,10" FontWeight="Bold">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="5"/>

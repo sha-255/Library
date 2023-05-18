@@ -9,7 +9,5 @@ namespace Library.Domain.Data
         public int Id { get; set; }
         public int InventoryNumber { get; set; }
         public string NameAndAuthor { get; set; }
-        public DateTime Issue { get; set; }
-        public DateTime Return { get; set; }
     }
 }

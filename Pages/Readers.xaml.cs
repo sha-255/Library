@@ -3,7 +3,6 @@ using Library.Domain.Data;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.ObjectModel;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -43,6 +42,7 @@ namespace Library.Pages
             InitializeComponent();
             ApplyContext();
             SearchView.ItemsSource = readers;
+            OpenBooks.Click += (s, e) => NavigationService.Navigate(new BooksPage());
             Add.Click += (s,e) => NavigationService.Navigate(new AddReaderPage());
             Remove.Click += OnRemoveClick;
         }
