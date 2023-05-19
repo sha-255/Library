@@ -1,0 +1,200 @@
+﻿<Page x:Class="Library.Pages.ReaderInfo"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:sys="clr-namespace:System;assembly=mscorlib"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ReaderInfo">
+
+    <Grid Background="#36393f">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0" Background="#252525">
+            <MenuItem Header="Приложение" FontWeight="Bold" Background="#252525" Foreground="Gray">
+                <MenuItem x:Name="OpenReaders" Header="Читатели" Background="#252525" Foreground="Gray" BorderBrush="#252525"/>
+            </MenuItem>
+        </Menu>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <DockPanel Margin="0,10,0,10" HorizontalAlignment="Center">
+                    <Button x:Name="Return" Margin="0,0,3,0" Content="✓" Foreground="#FF668DCC" Background="#252525" HorizontalAlignment="Center" FontWeight="UltraBold" FontSize="20" Cursor="Hand">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <TextBox x:Name="ReturnId" Margin="0,0,3,0" Width="32" Foreground="Gray" BorderBrush="#FF668DCC" Background="#282B30" FontWeight="ExtraBold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                        <TextBox.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="10"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                    <Button x:Name="Add" Margin="0,0,3,0" Content=" + " Foreground="#FF66CC6D" Background="#252525" HorizontalAlignment="Center" FontWeight="UltraBold" FontSize="20" Cursor="Hand">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <TextBox x:Name="AddId" Margin="0,0,3,0" Width="32" Foreground="Gray" BorderBrush="#FF66CC6D" Background="#282B30" FontWeight="ExtraBold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                        <TextBox.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="10"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                    <Button x:Name="Remove" Margin="0,0,3,0" Content=" x " Foreground="#FFCC7777" Background="#252525" HorizontalAlignment="Center" FontWeight="Bold"  FontSize="20" Cursor="Hand">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <TextBox x:Name="RemoveId" Margin="0,0,3,0" Width="32" Foreground="Gray" BorderBrush="#FFCC7777" Background="#282B30" FontWeight="ExtraBold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                        <TextBox.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="10"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                </DockPanel>
+                <ListBox x:Name="BooksListBox"
+                 HorizontalContentAlignment="Stretch"
+                 Grid.Row="1"
+                 Background="{x:Null}" 
+                 BorderBrush="{x:Null}" 
+                 Foreground="{x:Null}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Border Background="#252525" CornerRadius="6">
+                                    <DockPanel>
+                                        <Label Content="{Binding Path=Id}"  Foreground="Gray" FontWeight="Medium"/>
+                                        <Label Content="{Binding Path=InventoryNumber}"  Foreground="Gray" FontWeight="Medium"/>
+                                        <Label Content="{Binding Path=NameAndAuthor}"  Foreground="Gray" FontWeight="Medium"/>
+                                        <Label Content="{Binding Path=IssueDate}"  Foreground="Gray" FontWeight="Medium"/>
+                                        <Label Content="{Binding Path=ReturnDate}"  Foreground="Gray" FontWeight="Medium"/>
+                                    </DockPanel>
+                                </Border>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
+            <Grid Grid.Column="1" Background="#282B30">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                <StackPanel Margin="10,10,10,10">
+                    <Label Content="Информация пользователя:" Foreground="Gray" FontWeight="ExtraBold"/>
+                    <Separator Background="Gray"/>
+                    <Label/>
+                    <DockPanel>
+                        <Label Content="Имя:" Foreground="Gray" FontWeight="ExtraBold"/>
+                        <TextBox x:Name="PostName" Foreground="Gray" BorderBrush="Gray" Background="#282B30" FontWeight="ExtraBold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                            <TextBox.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
+                    </DockPanel>
+                    <Label/>
+                    <DockPanel>
+                        <Label Content="День рождения:" Foreground="Gray" FontWeight="ExtraBold"/>
+                        <DatePicker x:Name="PostBirthday" Foreground="Gray" BorderBrush="Gray" Background="#282B30" FontWeight="ExtraBold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                            <DatePicker.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                                <Style TargetType="{x:Type DatePickerTextBox}">
+                                    <Setter Property="Control.Template">
+                                        <Setter.Value>
+                                            <ControlTemplate>
+                                                <TextBox Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}}" Foreground="Gray" Background="{x:Null}" SelectionTextBrush="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" />
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </DatePicker.Resources>
+                        </DatePicker>
+                    </DockPanel>
+                    <Label/>
+                    <DockPanel>
+                        <Label Content="Аддрес и телефон:" Foreground="Gray" FontWeight="ExtraBold"/>
+                        <TextBox x:Name="PostAddressAndPhone" Foreground="Gray" BorderBrush="Gray" Background="#282B30" FontWeight="ExtraBold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                            <TextBox.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
+                    </DockPanel>
+                    <Label/>
+                    <DockPanel>
+                        <Label Content="Группа:" Foreground="Gray" FontWeight="ExtraBold"/>
+                        <TextBox x:Name="PostGroup" Foreground="Gray" BorderBrush="Gray" Background="#282B30" FontWeight="ExtraBold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                            <TextBox.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
+                    </DockPanel>
+                    <Label/>
+                    <DockPanel>
+                        <Label Content="Дата записи:" Foreground="Gray" FontWeight="ExtraBold"/>
+                        <DatePicker x:Name="PostRecordingDate" Foreground="Gray" BorderBrush="Gray" Background="#282B30" FontWeight="ExtraBold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                            <DatePicker.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                                <Style TargetType="{x:Type DatePickerTextBox}">
+                                    <Setter Property="Control.Template">
+                                        <Setter.Value>
+                                            <ControlTemplate>
+                                                <TextBox Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}}" Foreground="Gray" Background="{x:Null}" SelectionTextBrush="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" />
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </DatePicker.Resources>
+                        </DatePicker>
+                    </DockPanel>
+                    <Label x:Name="test"/>
+                </StackPanel>
+                <DockPanel Grid.Row="1">
+                    <Button x:Name="Apply" Content="  Применить  " Background="#FF36393F" Foreground="Gray" VerticalAlignment="Bottom" Margin="10,10,10,10" FontWeight="Bold" HorizontalAlignment="Center">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button x:Name="ApplyAndExit" Content="  Применить и выйти  " Background="#FF36393F" Foreground="Gray" VerticalAlignment="Bottom" Margin="10,10,10,10" FontWeight="Bold" HorizontalAlignment="Center">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </DockPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

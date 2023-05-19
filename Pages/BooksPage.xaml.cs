@@ -2,6 +2,9 @@
 using Library.Domain.Data;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
@@ -19,9 +22,20 @@ namespace Library.Pages
         {
             InitializeComponent();
             OpenReaders.Click += (s, e) => NavigationService.Navigate(new Pages.Readers());
-            ApplyContext();
+            ApplyContext(booksContext.Books.ToListAsync());
             Add.Click += OnAddClick;
             Remove.Click += OnRemoveClick;
+            BooksSearch.TextChanged += OnBooksSearchTextChanged;
+        }
+
+        private void OnBooksSearchTextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (BooksSearch.Text == "")
+            {
+                ApplyContext(booksContext.Books.ToListAsync());
+                return;
+            }
+            ApplyContext(booksContext.Books.Where(el => el.NameAndAuthor.Contains(BooksSearch.Text)).ToListAsync());
         }
 
         private void OnRemoveClick(object sender, RoutedEventArgs e)
@@ -30,7 +44,7 @@ namespace Library.Pages
             {
                 booksContext.Books.Remove(booksContext.Books.Find(Math.Abs(int.Parse(RemoveId.Text))));
                 booksContext.SaveChanges();
-                ApplyContext();
+                ApplyContext(booksContext.Books.ToListAsync());
             }
             catch
             {
@@ -53,7 +67,7 @@ namespace Library.Pages
                 };
                 booksContext.Books.Add(book);
                 booksContext.SaveChanges();
-                ApplyContext();
+                ApplyContext(booksContext.Books.ToListAsync());
             }
             catch
             {
@@ -66,7 +80,7 @@ namespace Library.Pages
             }
         }
 
-        public async void ApplyContext()
-            => BooksListBox.ItemsSource = await booksContext.Books.ToListAsync();
+        public async void ApplyContext(Task<List<Book>> books)
+            => BooksListBox.ItemsSource = await books;
     }
 }

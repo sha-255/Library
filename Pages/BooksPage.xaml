@@ -8,11 +8,11 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="BooksPage">
 
-    <Grid Background="#36393f">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
             <RowDefinition/>
-            <RowDefinition Height="170"/>
+            <RowDefinition Height="190"/>
         </Grid.RowDefinitions>
         <Menu Grid.Row="0" Background="#252525">
             <MenuItem Header="Приложение" FontWeight="Bold" Background="#252525" Foreground="Gray">
@@ -50,46 +50,63 @@
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
-                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="0.6*"/>
             </Grid.ColumnDefinitions>
-            <GroupBox Header="Добавить книгу" Foreground="Gray" FontWeight="Bold" Margin="10,10,10,10" BorderBrush="#FF282B30">
-                <Grid>
-                    <StackPanel Margin="10,10,10,10">
-                        <DockPanel>
-                            <Label Content="Инвентарный номер:" Foreground="Gray" FontWeight="ExtraBold"/>
-                            <TextBox x:Name="AddInventoryNumber" Foreground="Gray" BorderBrush="Gray" Background="#282B30" FontWeight="ExtraBold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
-                                <TextBox.Resources>
-                                    <Style TargetType="Border">
-                                        <Setter Property="CornerRadius" Value="10"/>
-                                    </Style>
-                                </TextBox.Resources>
-                            </TextBox>
-                        </DockPanel>
-                        <Label/>
-                        <DockPanel>
-                            <Label Content="Имя и автор:" Foreground="Gray" FontWeight="ExtraBold"/>
-                            <TextBox x:Name="AddNameAndAuthor" Foreground="Gray" BorderBrush="Gray" Background="#282B30" FontWeight="ExtraBold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
-                                <TextBox.Resources>
-                                    <Style TargetType="Border">
-                                        <Setter Property="CornerRadius" Value="10"/>
-                                    </Style>
-                                </TextBox.Resources>
-                            </TextBox>
-                        </DockPanel>
-                        <Label/>
-                        <Button x:Name="Add" Content="  Добавить  " Background="#282B30"  Foreground="Gray" FontWeight="ExtraBold" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Button.Resources>
+            <Border Margin="10,10,10,10" CornerRadius="10" Background="#252525">
+                <StackPanel Margin="10,10,10,10">
+                    <Label Content="Добавление книги:" Foreground="Gray" FontWeight="ExtraBold"/>
+                    <Separator Background="Gray"/>
+                    <Label/>
+                    <DockPanel>
+                        <Label Content="Инвентарный номер:" Foreground="Gray" FontWeight="ExtraBold"/>
+                        <TextBox x:Name="AddInventoryNumber" Foreground="Gray" BorderBrush="Gray" Background="#282B30" FontWeight="ExtraBold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                            <TextBox.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="10"/>
                                 </Style>
-                            </Button.Resources>
-                        </Button>
-                    </StackPanel>
-                </Grid>
-            </GroupBox>
-            <GroupBox Grid.Column="1"  Header="Удалить книгу" Foreground="Gray" FontWeight="Bold" Margin="10,10,10,10" BorderBrush="#FF282B30">
-                <Grid>
+                            </TextBox.Resources>
+                        </TextBox>
+                    </DockPanel>
+                    <Label/>
+                    <DockPanel>
+                        <Label Content="Имя и автор:" Foreground="Gray" FontWeight="ExtraBold"/>
+                        <TextBox x:Name="AddNameAndAuthor" Foreground="Gray" BorderBrush="Gray" Background="#282B30" FontWeight="ExtraBold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                            <TextBox.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
+                    </DockPanel>
+                    <Label/>
+                    <Button x:Name="Add" Content="  Добавить  " Background="#282B30"  Foreground="Gray" FontWeight="ExtraBold" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="10"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </StackPanel>
+            </Border>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="150"/>
+                </Grid.RowDefinitions>
+                <StackPanel>
+                    <TextBox x:Name="BooksSearch" Margin="10,10,10,0" Background="#252525" Foreground="Gray" Height="30" FontWeight="ExtraBold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="{x:Null}">
+                        <TextBox.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="15"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                </StackPanel>
+                <Border Grid.Row="1" Margin="10,10,10,10" CornerRadius="10" Background="#252525">
                     <StackPanel Margin="10,10,10,10">
+                        <Label Content="Удаление книги:" Foreground="Gray" FontWeight="ExtraBold"/>
+                        <Separator Background="Gray"/>
+                        <Label/>
                         <DockPanel>
                             <Label Content="Id книги:" Foreground="Gray" FontWeight="ExtraBold"/>
                             <TextBox x:Name="RemoveId" Foreground="Gray" BorderBrush="Gray" Background="#282B30" FontWeight="ExtraBold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
@@ -109,8 +126,8 @@
                             </Button.Resources>
                         </Button>
                     </StackPanel>
-                </Grid>
-            </GroupBox>
+                </Border>
+            </Grid>
         </Grid>
     </Grid>
 </Page>

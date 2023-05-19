@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AddReaderPage">
 
-    <Grid Background="#36393f">
+    <Grid>
         <Border Background="#252525" CornerRadius="10" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Width="300" Margin="10,10,10,10">
                 <DockPanel>
@@ -28,6 +28,15 @@
                         <DatePicker.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="10"/>
+                            </Style>
+                            <Style TargetType="{x:Type DatePickerTextBox}">
+                                <Setter Property="Control.Template">
+                                    <Setter.Value>
+                                        <ControlTemplate>
+                                            <TextBox Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}}" Foreground="Gray" Background="{x:Null}" SelectionTextBrush="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" />
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
                             </Style>
                         </DatePicker.Resources>
                     </DatePicker>
@@ -61,6 +70,15 @@
                         <DatePicker.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="10"/>
+                            </Style>
+                            <Style TargetType="{x:Type DatePickerTextBox}">
+                                <Setter Property="Control.Template">
+                                    <Setter.Value>
+                                        <ControlTemplate>
+                                            <TextBox Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}}" Foreground="Gray" Background="{x:Null}" SelectionTextBrush="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" />
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
                             </Style>
                         </DatePicker.Resources>
                     </DatePicker>
