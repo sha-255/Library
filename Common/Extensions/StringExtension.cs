@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace KeeperPRO.WPFClient.Common.Extensions
+namespace Library.Common.Extensions
 {
     public static class StringExtension
     {

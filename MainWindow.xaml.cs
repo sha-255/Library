@@ -1,4 +1,4 @@
-﻿using AdvertisingAgency.Common;
+﻿using Library.Common;
 using Library.Pages;
 using System.Windows;
 

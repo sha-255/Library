@@ -1,4 +1,4 @@
-﻿using AdvertisingAgency.Common;
+﻿using Library.Common;
 using Library.Domain.Data;
 using Microsoft.EntityFrameworkCore;
 

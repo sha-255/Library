@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System;
 
-namespace AdvertisingAgency.Common
+namespace Library.Common
 {
     public static class Settings
     {

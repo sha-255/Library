@@ -2,16 +2,12 @@
 using Library.Domain.Data;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 
 namespace Library.Pages
 {
@@ -20,9 +16,9 @@ namespace Library.Pages
     /// </summary>
     public partial class Readers : Page
     {
-        byte[] bytes = { 115, 104, 97,  45, 50, 53, 53 };
+        byte[] bytes = 
+            { 115, 104, 97,  45, 50, 53, 53 };
         ReadersContext readersContext = new();
-        BooksContext booksContext = new();
 
         public Readers()
         {
